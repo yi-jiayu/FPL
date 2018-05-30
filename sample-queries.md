@@ -1,6 +1,6 @@
 # Sample queries
 
-## Top players, club, position and price overall:
+## Top players, club, position and price overall
 
 ```sql
 select
@@ -40,7 +40,7 @@ limit 20;
 | Lukaku      |   Man Utd |      FWD |          162 |  11.5 |
 | Ederson     |  Man City |      GKP |          158 |   5.7 |
 
-## Top players, club and position by gameweek:
+## Top players, club and position by gameweek
 
 ```sql
 select
