@@ -99,6 +99,42 @@ order by gameweek
 | Aubameyang  | Arsenal        |      FWD |       37 |     16 |
 | van Aanholt | Crystal Palace |      DEF |       38 |     18 |
 
+## Top scoring player from each club
+
+```sql
+select
+  p.web_name,
+  t.name                as club,
+  r.singular_name_short as position,
+  max(p.total_points)   as total_points
+from players p left join teams t on p.team = t.id
+  left join roles r on p.element_type = r.id
+group by p.team;
+```
+
+| web_name    | club           | position | total_points | cost |
+|:------------|:---------------|:---------|-------------:|-----:|
+| Salah       | Liverpool      | MID      |          303 | 10.6 |
+| Sterling    | Man City       | MID      |          229 |  9.1 |
+| Kane        | Spurs          | FWD      |          217 | 13.1 |
+| Mahrez      | Leicester      | MID      |          195 |  8.7 |
+| Azpilicueta | Chelsea        | DEF      |          175 |  6.9 |
+| De Gea      | Man Utd        | GKP      |          172 |  5.9 |
+| Groß        | Brighton       | MID      |          164 |  5.9 |
+| Fabianski   | Swansea        | GKP      |          157 |  4.7 |
+| Shaqiri     | Stoke          | MID      |          155 |  6.1 |
+| Pope        | Burnley        | GKP      |          152 |    5 |
+| Pickford    | Everton        | GKP      |          145 |  4.9 |
+| Milivojevic | Crystal Palace | MID      |          144 |  5.2 |
+| Arnautovic  | West Ham       | MID      |          144 |  7.1 |
+| Lacazette   | Arsenal        | FWD      |          138 | 10.3 |
+| Doucouré    | Watford        | MID      |          136 |  5.2 |
+| Lössl       | Huddersfield   | GKP      |          135 |  4.6 |
+| Pérez       | Newcastle      | FWD      |          124 |  5.5 |
+| Foster      | West Brom      | GKP      |          123 |  4.3 |
+| Tadic       | Southampton    | MID      |          122 |  6.2 |
+| Begovic     | Bournemouth    | GKP      |          112 |  4.5 |
+
 ## Clubs by away, home and total goals scored
 ```sql
 select
